@@ -1,0 +1,26 @@
+<ion-header >
+	<ion-navbar color='primary'>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Transections</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding-top>
+	<ion-list>
+		<button ion-item *ngFor="let exp of letestexpense" >
+			<!-- <ion-icon name="cash" item-left></ion-icon> -->
+			<i class="fa fa-credit-card-alt fa-fw"></i>
+			{{exp.exp_type}}
+			<div class="item-note" item-right>
+				<i class="fa fa-inr fa-fw"></i>{{exp.amount}}
+				<i class="fa fa-time fa-fw"></i> {{ exp.time }} 
+			</div>
+		</button>
+	</ion-list>
+	<button ion-item *ngIf="recent_transection < 1">
+		<div class="item item-divider" text-center>No recent transections</div>
+	</button>
+</ion-content>

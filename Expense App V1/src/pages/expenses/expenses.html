@@ -1,0 +1,37 @@
+<ion-header >
+	<ion-navbar color='primary'>
+		<!-- 	<ion-title>My Expense</ion-title> -->
+		<ion-searchbar
+		[showCancelButton]="shouldShowCancel"
+		(ionInput)="onInput($event)"
+		(ionCancel)="onCancel($event)" placeholder="Search expense">
+	</ion-searchbar>
+</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-refresher (ionRefresh)="doRefresh($event)" style="color:green">
+		<ion-refresher-content ></ion-refresher-content>
+	</ion-refresher>
+	<br>
+	<ion-list *ngFor="let exp of letestexpense">
+		<ion-item (click)="presentActionSheet(exp.exp_type,exp.id,exp.time)">
+			<i class="fa fa-google-wallet fa-fw"></i>
+			{{exp.exp_type}}
+			<div class="item-note" item-right style="text-align: justify;
+			text-justify: inter-word;">
+			<i class="fa fa-inr fa-fw"></i>{{exp.amount}}
+		</div>
+		<div class="item-note" disabled style="padding-left: 5px">
+			<i class="fa fa-time fa-fw"></i><small>{{ exp.time }}</small> 
+		</div>
+	</ion-item>
+</ion-list>
+
+
+<button ion-item *ngIf="letestexpense < 1">
+	<div class="item item-divider" text-center>No recent expenses</div>
+</button>
+<ion-fab bottom="" right="">
+	<button color="dark" ion-fab="" (click)="add_new()" color="light"><ion-icon name="add" ></ion-icon></button>
+</ion-fab>
+</ion-content>

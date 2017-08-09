@@ -1,0 +1,56 @@
+<!-- <ion-header >
+  <ion-navbar color='primary'>
+    <ion-title text-center>Vexpense</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding-top>
+  <ion-title text-center padding-top> <h1 style="font-family:Brush Script MT, cursive;color:#6e1b76;
+    font-variant: normal;
+    font-size: 50px;">Vexpense</h1></ion-title>
+    <form #loginForm="ngForm" novalidate id="myform">
+      <ion-list padding-top>
+
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+          required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="login.password" name="password"  #password="ngModel" spellcheck="false"
+          required></ion-input>
+        </ion-item>
+        <br>
+        <div style="text-align:center">
+          <button style="height:50px;width:50%;text-align: center;" text-center ion-button (click)="onLoginClick(loginForm)" button button-outline button-positive type="submit">Login</button>
+        </div>
+      </ion-list>
+    </form>
+    <div style="text-align:center">
+      <button ion-button style="background-color:#4962a2;">
+        <i class="fa fa-facebook fa-fw"></i>
+      </button>
+      <button ion-button style="background-color:#d3352c;">
+        <i class="fa fa-google-plus fa-fw"></i>
+      </button>
+    </div>
+    <br>
+    <ion-label  style="text-align:center" color="primary" class="label label-ios label-ios-primary" id="lbl-6">Forget Password ?</ion-label>
+  </ion-content>
+  <script>
+// just for the demos, avoids form submit
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( "#myform" ).validate({
+  rules: {
+    field: {
+      required: true,
+      number: true
+    }
+  }
+});
+</script>

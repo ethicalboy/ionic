@@ -1,0 +1,56 @@
+<ion-header style="background-color:#6e1b76">
+  <ion-navbar color='light'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Pocket</ion-title>
+  </ion-navbar>
+
+  <div class="list card" padding-left text-justify style="background-color:#6e1b76">
+    <ion-list >
+      <div class="item item-avatar" style="color: white">
+        <h5><i class="fa fa-inr fa-fw"></i> {{count}}
+        </h5>
+        <ion-datetime disabled displayFormat="MMM DD,YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </div>
+      <div class="item item-avatar" style="color: white">
+      <p>Server : {{liveurl}} </p>
+      </div>
+    </ion-list>
+  </div>
+  <hr>
+  <div class="item item-divider" text-center padding style="color:white">
+    Recent Expenses
+  </div>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)" style="color:green">
+    <ion-refresher-content ></ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngFor="let exp of letestexpense">
+    <ion-item (press)="presentActionSheet(exp.exp_type,exp.id,exp.time)" (click)="viewexpenseinfo(exp.id)">
+      <i class="fa fa-google-wallet fa-fw"></i>
+      {{exp.exp_type}}
+      <div class="item-note" item-right style="text-align: justify;
+      text-justify: inter-word;">
+      <i class="fa fa-inr fa-fw"></i>{{exp.amount}}
+    </div>
+    <div class="item-note" disabled style="padding-left: 5px">
+      <i class="fa fa-time fa-fw"></i><small>{{ exp.time }}</small> 
+    </div>
+  </ion-item>
+</ion-list>
+
+
+
+
+<button ion-item *ngIf="letestexpense < 1">
+  <div class="item item-divider" text-center>No recent expenses</div>
+</button>
+<ion-fab bottom="" right="">
+  <button color="dark" ion-fab="" (click)="add_new()" color="light"><ion-icon name="add" ></ion-icon></button>
+</ion-fab>
+</ion-content>

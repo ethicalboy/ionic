@@ -1,0 +1,21 @@
+<ion-header >
+  <ion-navbar color='primary'>
+    <ion-title>New Category</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<form #categoryForm="ngForm" novalidate>
+		<ion-list>
+			<ion-item>
+				<ion-label color="primary" stacked>Category Name</ion-label>
+				<ion-input type="text"  [(ngModel)]="category_model.exp_type" #exp_type="ngModel" name="exp_type" placeholder="Enter Category" required></ion-input>
+			</ion-item>
+			<ion-item>
+				<br>
+				<button style="height:50px" ion-button (click)="new_category(categoryForm)" type="submit" block><ion-icon name="add"></ion-icon>&nbsp;&nbsp;&nbsp;Add Category</button>
+			</ion-item>
+		</ion-list>
+	</form>
+</ion-content>

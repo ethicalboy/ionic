@@ -1,0 +1,32 @@
+<ion-header >
+	<ion-navbar color='primary'>
+		<ion-title>Add Money</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<form #dipositeForm="ngForm" novalidate>
+		<ion-list>
+			<ion-item>
+				<ion-label color="primary" stacked>Amount</ion-label>
+				<ion-input type="number"  [(ngModel)]="add_cash.amount" #amount="ngModel" name="amount" placeholder="Enter amount"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label color="primary" stacked>Date</ion-label>
+				<!-- <ion-input type="password" placeholder="Password Input"></ion-input> -->
+				<ion-datetime displayFormat="DD/MMM/YYYY" #transection_date="ngModel"  min="2017" name="transferDate"  [(ngModel)]="add_cash.transection_date"></ion-datetime>
+
+			</ion-item>		
+			<ion-item>
+				<ion-label color="primary" stacked>Comment</ion-label>
+				<ion-textarea [(ngModel)]="add_cash.comment" #comment="ngModel" name="comment" placeholder="Enter a description"></ion-textarea>
+			</ion-item>
+			<ion-item>
+				<br>
+				<button style="height:50px" ion-button (click)="add_money(dipositeForm)" type="submit" block><ion-icon name="add"></ion-icon>&nbsp;&nbsp;&nbsp;Add Money</button>
+			</ion-item>
+		</ion-list>
+	</form>
+</ion-content>

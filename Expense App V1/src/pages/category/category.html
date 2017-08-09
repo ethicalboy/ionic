@@ -1,0 +1,36 @@
+<ion-header >
+	<ion-navbar color='primary'>
+		<ion-searchbar
+		[showCancelButton]="shouldShowCancel"
+		(ionInput)="onInput($event)"
+		(ionCancel)="onCancel($event)" placeholder="Search category">
+	</ion-searchbar>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-refresher (ionRefresh)="doRefresh($event)" style="color:green">
+		<ion-refresher-content ></ion-refresher-content>
+	</ion-refresher>
+	<ion-list *ngFor="let c of categorys">
+		<ion-item (click)="presentActionSheet(c.exp_type,c.id,c.time)">
+			<i class="fa fa-google-wallet fa-fw"></i>
+			{{c.exp_type}}
+			<div class="item-note" disabled style="padding-left: 5px">
+				<i class="fa fa-time fa-fw"></i><small>{{ c.time }}</small> 
+			</div>
+		</ion-item>
+	</ion-list>
+
+
+
+
+
+	<button ion-item *ngIf="categorys < 0">
+		<div class="item item-divider" text-center>No recent expeses</div>
+	</button>
+	<ion-fab bottom="" right="">
+		<button color="dark" ion-fab="" (click)="add_new()" color="light"><ion-icon name="add" ></ion-icon></button>
+	</ion-fab>
+</ion-content>

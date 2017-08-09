@@ -1,0 +1,38 @@
+<ion-header >
+	<ion-navbar color='primary'>
+		<ion-searchbar
+		[showCancelButton]="shouldShowCancel"
+		(ionInput)="onInput($event)"
+		(ionCancel)="onCancel($event)" placeholder="Search Transections">
+	</ion-searchbar>
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher (ionRefresh)="doRefresh($event)" style="color:green">
+		<ion-refresher-content ></ion-refresher-content>
+	</ion-refresher>
+	<br>
+	<ion-list *ngFor="let exp_tr of recent_transection">
+		<ion-item (click)="presentActionSheet(exp_tr.comment,exp_tr.id,exp_tr.time)">
+			<i class="fa fa-google-wallet fa-fw"></i>
+			{{exp_tr.comment}}
+			<div class="item-note" item-right style="text-align: justify;
+			text-justify: inter-word;">
+			<i class="fa fa-inr fa-fw"></i>{{exp_tr.amount}}
+		</div>
+		<div class="item-note" disabled style="padding-left: 5px">
+			<i class="fa fa-time fa-fw"></i><small>{{ exp_tr.time }} </small> 
+		</div>
+	</ion-item>
+</ion-list>
+
+
+
+<button ion-item *ngIf="recent_transection < 1">
+	<div class="item item-divider" text-center>No recent transections</div>
+</button>
+<ion-fab bottom="" right="">
+	<button color="dark" ion-fab="" (click)="add_new()" color="light"><ion-icon name="add" ></ion-icon></button>
+</ion-fab>
+</ion-content>

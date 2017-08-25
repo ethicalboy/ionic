@@ -2,14 +2,14 @@
 
 Hello,
 
-I have started working on mobile app development and just started building a simple expense app using ionic cross platform framework 
+I have started working on mobile app development and just started building a simple expense app using ionic cross platform framework <br>
 
-I have developed a simple app that will have following functionality in Version 1.O
+I have developed a simple app that will have following functionality in Version 1.O <br>
 
-=> User Can add expenses he/she has done
-=> Can create custom category based on his/her need
-=> User can view live pocket balance.
-=> user can track the transection (i called it here as source of income for example ATM,Or any ther cash  transaction )
+=> User Can add expenses he/she has done <br>
+=> Can create custom category based on his/her need <br>
+=> User can view live pocket balance. <br>
+=> user can track the transection (i called it here as source of income for example ATM,Or any ther cash  transaction ) <br>
 
 
 This project have following plugins 
